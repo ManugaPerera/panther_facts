@@ -75,7 +75,7 @@
             const factElement = document.getElementById('fact');
             factElement.classList.remove('visible'); // Hide the fact
 
-
+            // Update the fact text after a short delay
             setTimeout(() => {
                 factElement.innerText = pantherFacts[randomIndex];
                 factElement.classList.add('visible'); // Show the fact with fade-in effect
