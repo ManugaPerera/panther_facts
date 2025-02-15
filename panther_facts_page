@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Panther Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            width: 100%;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s, filter 0.2s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        button:active {
+            transform: scale(0.95);
+            filter: brightness(0.9);
+        }
+        #fact {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        #fact.visible {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Random Panther Fact</h1>
+        <p id="fact"></p>
+        <button id="factButton">Get Random Fact</button>
+    </div>
+
+    <script>
+        const pantherFacts = [
+            "Panthers are not a distinct species but rather a term used to describe several big cats, including leopards and cougars.",
+            "The term 'black panther' typically refers to melanistic leopards or jaguars, which have a dark coat due to a genetic mutation.",
+            "Panthers are solitary animals and prefer to live alone, except during mating season or when a mother is raising her cubs.",
+            "They are excellent climbers and often rest in trees to avoid predators and to stalk prey.",
+            "Panthers have a varied diet that includes deer, wild boar, and smaller mammals, depending on their habitat.",
+            "Their range extends across various habitats, including forests, swamps, and grasslands, primarily in the Americas and parts of Asia.",
+            "Panthers are known for their powerful build and agility, making them effective hunters.",
+            "The Florida panther is a subspecies of the cougar and is critically endangered, with an estimated population of around 120-230 individuals.",
+            "Panthers communicate through vocalizations, scent markings, and body language to establish territory and attract mates.",
+            "They are primarily nocturnal, hunting at night and resting during the day to avoid the heat."
+        ];
+
+        document.getElementById('factButton').addEventListener('click', function() {
+            const randomIndex = Math.floor(Math.random() * pantherFacts.length);
+            const factElement = document.getElementById('fact');
+            factElement.classList.remove('visible'); // Hide the fact
+
+
+            setTimeout(() => {
+                factElement.innerText = pantherFacts[randomIndex];
+                factElement.classList.add('visible'); // Show the fact with fade-in effect
+            }, 300); // Delay to allow for fade-out effect
+        });
+    </script>
+</body>
+</html>
